@@ -1,0 +1,40 @@
+It is very important to have Jenkins backup with its data and configurations. It includes job configs, builds logs, plugins, plugin configuration, etc.
+
+Jenkins requires regular patching and plugin updates. During these processes, there is a risk of configuration issues, which could potentially lead to a Jenkins crash.
+
+This may lead to a disruption in Jenkins service, so it is very important to back up Jenkins data periodically.
+
+This article will cover the following three ways to back up Jenkins data and configurations.
+
+Using Think Backup Plugin
+Backup using Disk Snapshots
+Manual Backup
+Jenkins Backup Using Thin Backup Plugin
+Jenkins Thin Backup is a popular plugin for backing up Jenkins. It backs up all the data based on your schedule and handles backup retention as well.
+
+The following are the core features of this plugin.
+
+Full backup
+Differential backup
+File exclusions from Backup
+Backup build results
+Cleanup of differential backups
+Archive old backups to ZIP format
+Let’s get started with the setup.
+
+Step 1: Install the Think Backup plugin.
+1. Go to Manage Jenkins –> Manage Plugins
+
+2. Click the Available tab and search for “Thin backup”
+3. Install the plugin and restart Jenkins.
+
+Step 2: Thinbackup Plugin Configuration
+Once the plugin is installed, follow the steps given below to configure the backup settings.
+
+1. Go to Manage Jenkins — > ThinBackup
+
+2. Click the settings option.
+
+3. Enter the backup options shown below and save them. All the options are self-explanatory. The backup directory you specify should be writable by the user running the Jenkins service. The plugin saves the backup to the backup directory you specify.
+4. Now, you can test if the backup works by clicking the Backup Now option. It will create a backup of Jenkins data in the backup directory you specified in the settings.
+5. If you check the backup directory on the server, you can see the backup created. For every new backup, it attaches the timestamp to the folder name and keeps the old backup based on the retention policy you mentioned in the settings.
